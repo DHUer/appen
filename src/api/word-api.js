@@ -17,6 +17,7 @@ module.exports.search_word = function (word) {
                 console.log(tmp);
                 let index = tmp.indexOf(target);
                 if(tmp.length > 1&& index < tmp.length - 1 && index >= 0 && value > highFre) {
+                    highFre = value;
                     resolve(" " + tmp[index + 1]);
                     return;
                 }
