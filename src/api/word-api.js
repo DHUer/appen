@@ -10,12 +10,13 @@ module.exports.search_word = function (word) {
         if(target == "") resolve("");
         //查询单词, 如果最后一个单词是一个完整的单词说明应该推算下一个可能的单词
         if(dictMap.has(target)) {
+            let highFre = 0;
             dictMap.forEach((value, key) => {
                 let str = String(key);
                 let tmp = str.split(" ");
                 console.log(tmp);
                 let index = tmp.indexOf(target);
-                if(tmp.length > 1&& index < tmp.length - 1 && index >= 0) {
+                if(tmp.length > 1&& index < tmp.length - 1 && index >= 0 && value > highFre) {
                     resolve(" " + tmp[index + 1]);
                     return;
                 }
